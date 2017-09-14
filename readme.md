@@ -9,7 +9,8 @@ How to run the instance.
 3. Clone the project into a folder `git clone git@github.com:arumals/vagrant-lamp.git project && cd project`.
 4. Run vagrant `vagrant up`, and wait for the the process to complete.
 5. Your project must be visible in the url [http://localhost:3000](http://localhost:3000).
+6. A new mysql `root` user with a `root` password is ready to be use (phpadmin is installed over [http://localhost:3000/phpmyadmin]).
+7. Add/remove/replace files inside the `public` folder (this contains your project's files).
+8. Keep this instance closed when is not in use by doing `vagrant halt`.
 
-The public folders contains the files that are going to be display in this url, by default there is an index and a php.info file.
-
-It is possible to access the ubuntu shell by doing `vagrant ssh`.
+*By doing `vagrant ssh` you can access the ubuntu shell and do any change needed.*
