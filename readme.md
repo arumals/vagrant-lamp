@@ -5,7 +5,7 @@ The intention behind this project is to provision a lamp environment using vagra
 How to run the instance.
 
 1. Install [virtualbox](https://www.virtualbox.org/wiki/Downloads) if you don't have it.
-2. Install [vagrant] (https://www.vagrantup.com/downloads.html) if you don't have it yet.
+2. Install [vagrant](https://www.vagrantup.com/downloads.html) if you don't have it yet.
 3. Clone the project into a folder `git clone git@github.com:arumals/vagrant-lamp.git project && cd project`.
 4. Run vagrant `vagrant up`, and wait for the the process to complete.
 5. Your project must be visible in the url [http://localhost:3000](http://localhost:3000).
