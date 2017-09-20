@@ -2,6 +2,12 @@
 
 The intention behind this project is to provision a lamp environment using vagrant in the shortest amount of time with the smallest possible number of configuration and without having to install any of the lamp components directly in your system.
 
+List of components.
+- Apache
+- MySQL
+- PHP
+- PHPMyAdmin
+
 How to run the instance.
 
 1. Install [virtualbox](https://www.virtualbox.org/wiki/Downloads) if you don't have it.
