@@ -20,11 +20,11 @@ Vagrant.configure("2") do |config|
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
 
-  # Create a forwarded port mapping which allows access to a specific port
-  # within the machine from a port on the host machine. In the example below,
-  # accessing "localhost:8080" will access port 80 on the guest machine.
-  # NOTE: This will enable public access to the opened port
-  config.vm.network "forwarded_port", guest: 80, host: 3000
+  # apache port 80 is accessible by port 8010
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # mailcatcher port 1080 is accesible by port 8011
+  config.vm.network "forwarded_port", guest: 1080, host: 2525
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "127.0.0.1"
+  # config.vm.network "private_network", ip: "127.0.0.1"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -60,6 +60,15 @@ Vagrant.configure("2") do |config|
 
   end
 
+  # 5 minutes timeout
+  config.vm.boot_timeout = 300;
+
+  # gracefult wait timeout
+  config.vm.graceful_halt_timeout = 30;
+
+  # keep alive connection
+  config.ssh.keep_alive = true;
+
   #
   # View the documentation for the provider you are using for more
   # information on available options.
@@ -72,7 +81,12 @@ Vagrant.configure("2") do |config|
   #   apt-get install -y apache2
   # SHELL
 
+  # provision required files
+  config.vm.provision "file", source: "./provision/default.conf", destination: "~/default.conf"
+  config.vm.provision "file", source: "./provision/php.apache2.ini", destination: "~/php.apache2.ini"
+  config.vm.provision "file", source: "./provision/php.cli.ini", destination: "~/php.cli.ini"
+
   # provision using shell
-  config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.provision :shell, path: "./provision/bootstrap.sh"
 
 end
