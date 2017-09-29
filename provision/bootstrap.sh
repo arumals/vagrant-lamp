@@ -62,6 +62,7 @@ apt-get install -y ruby ruby-dev
 
 echo "Installing mailtchaer ......................"
 gem install mailcatcher
+sudo sed -i '$imailcatcher --http-ip=0.0.0.0' /etc/rc.local
 mailcatcher --http-ip=0.0.0.0
 
 echo "Installing NodeJS .........................."
@@ -88,3 +89,4 @@ apt-get -y install mysql-server phpmyadmin
 
 echo "Restart Apache ............................."
 service apache2 restart
+
