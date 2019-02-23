@@ -1,4 +1,4 @@
-# Vagrant LAMP (ubuntu/xenial64)
+# Vagrant LAMP (ubuntu/bionic64)
 
 The intention behind this project is to provision a lamp environment using vagrant in the shortest amount of time with the smallest possible number of configuration and without having to install any of the lamp components directly in your system.
 
