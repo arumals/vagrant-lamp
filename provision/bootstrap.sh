@@ -21,9 +21,10 @@ apt-get install -y sed
 apt-get install -y libsqlite3-dev
 
 echo "Install Pip"
-apt-get install -y python-pip
-pip install --upgrade pip 
-pip install --upgrade virtualenv
+apt-get install python3
+ln -s /usr/bin/python3 /usr/bin/python
+apt-get install -y python3-pip
+ln -s /usr/bin/pip3 /usr/bin/pip
 
 echo "Install Apache ............................."
 apt-get install -y apache2
@@ -42,7 +43,6 @@ apt-get -y install libapache2-mod-php \
     php-iconv \
     php-imap \
     php-mbstring \
-    php-mcrypt \
     php-opcache \
     php-posix \
     php-sockets \
@@ -69,13 +69,13 @@ echo "Installing NodeJS .........................."
 apt-get -y install nodejs
 
 echo "Installing php.ini files ..................."
-mv /home/ubuntu/php.apache2.ini /etc/php/7.0/apache2/php.ini
-mv /home/ubuntu/php.cli.ini /etc/php/7.0/cli/php.ini
+mv /home/vagrant/php.apache2.ini /etc/php/7.2/apache2/php.ini
+mv /home/vagrant/php.cli.ini /etc/php/7.2/cli/php.ini
 service apache2 restart
 
 echo "Update apache default vhost ................"
-mv /home/ubuntu/default.conf /etc/apache2/sites-enabled/000-default.conf
-service apache2 restart
+mv /home/vagrant/default.conf /etc/apache2/sites-enabled/000-default.conf
+# service apache2 restart
 
 echo "Installing MySQL ..........................."
 debconf-set-selections <<< "mysql-server mysql-server/root_password password root"

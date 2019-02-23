@@ -4,11 +4,12 @@ The intention behind this project is to provision a lamp environment using vagra
 
 List of components.
 - Apache 2.4
-- Python 2.7
-- Pip 8.0
-- Ruby 2.3
+- Python 3.6 and 2.7
+- Pip 9.1
+- Ruby 2.5
 - MySQL 5.7
-- PHP 7.0
+- SQlite3
+- PHP 7.2
 - PHPMyAdmin
 - Composer
 - Codeception
