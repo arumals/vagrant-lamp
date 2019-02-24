@@ -60,7 +60,7 @@ chmod +x /usr/bin/codecept
 echo "Installing Ruby and its libraries .........."
 apt-get install -y ruby ruby-dev
 
-echo "Installing mailtchaer ......................"
+echo "Installing mailcatcher ......................"
 gem install mailcatcher
 sudo sed -i '$imailcatcher --http-ip=0.0.0.0' /etc/rc.local
 mailcatcher --http-ip=0.0.0.0
